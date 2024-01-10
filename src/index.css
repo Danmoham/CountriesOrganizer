@@ -1,0 +1,29 @@
+.order-countries {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  text-align: center;
+  width: 90%;
+}
+#main-heading {
+  text-align: center;
+}
+.each-country {
+  margin: 20px;
+}
+#search-div {
+  text-align: center;
+}
+.pagination {
+  display: inline-block;
+}
+
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+ul {
+  list-style-type: none;
+}
