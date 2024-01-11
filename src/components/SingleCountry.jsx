@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { gettingSpecificCountry } from "../connectingToApi";
 import { useEffect, useState } from "react";
 
@@ -9,7 +9,7 @@ export const SingleCountry = () => {
 
   useEffect(() => {
     console.log(my_country);
-    gettingSpecificCountry(my_country).then(({ data }) => {
+    gettingSpecificCountry(my_country).then((data) => {
       console.log(data);
       setMyCountry(data);
     });
@@ -21,7 +21,8 @@ export const SingleCountry = () => {
       </li>
       <li key={myCountry.continent}>Continent: {myCountry.continent}</li>
       <img key={myCountry.flag} className="flag" src={myCountry.flag}></img>
-      <p>Click here to see more info</p>
+      <Link to="/"><button>Go back</button></Link>
     </div>
+
   );
 };
