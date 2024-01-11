@@ -8,7 +8,7 @@ export const AllCountries = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [countriesAll, setCountriesAll] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(12);
+  const [postsPerPage, setPostsPerPage] = useState(15);
   const lastPostIndex = currentPage * postsPerPage;
   const firstPostIndex = lastPostIndex - postsPerPage;
   const currentPosts = countriesAll.slice(firstPostIndex, lastPostIndex);
@@ -28,9 +28,19 @@ export const AllCountries = () => {
   } else {
     return (
       <div>
-            <NavBar setCountriesAll={setCountriesAll} setIsLoading={setIsLoading}/>
-            <MappingCountries currentPosts={currentPosts} />
-            <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} totalPosts ={countriesAll.length} postsPerPage={postsPerPage}/>
+        <NavBar
+          isLoading={isLoading}
+          setCurrentPage={setCurrentPage}
+          setCountriesAll={setCountriesAll}
+          setIsLoading={setIsLoading}
+        />
+        <MappingCountries currentPosts={currentPosts} />
+        <Pagination
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+          totalPosts={countriesAll.length}
+          postsPerPage={postsPerPage}
+        />
       </div>
     );
   }

@@ -1,7 +1,7 @@
 //sort by section
 //
 import { SortBy } from "./sortBy";
-export const NavBar = ({setIsLoading,setCountriesAll}) =>{
+export const NavBar = ({isLoading,setIsLoading,setCountriesAll,setCurrentPage}) =>{
     return <nav>
     <button
       onClick={() => {
@@ -11,7 +11,7 @@ export const NavBar = ({setIsLoading,setCountriesAll}) =>{
     >
       Search Country here
     </button>
-    <SortBy setCountriesAll={setCountriesAll} setIsLoading={setIsLoading}/>
+    <SortBy isLoading={isLoading} setCurrentPage={setCurrentPage} setCountriesAll={setCountriesAll} setIsLoading={setIsLoading}/>
 
   </nav>
 }
