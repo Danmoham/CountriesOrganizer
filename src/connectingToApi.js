@@ -33,3 +33,20 @@ export const callingCountries = (country) =>{
 }
 }
 
+export const callingCountriesFromContinent = (continent) =>{
+    const myCountries = []
+    return axios.get(`https://restcountries.com/v3.1/region/${continent}`).then(({data}) =>{
+        data.forEach(country => {
+            myCountries.push ({name: country.name.common,population : country.population, capital : country.capital, continent: country.region, flag: country.flags.png})
+        })
+        return myCountries
+        }).catch(({response}) =>{
+            const myResponse = {
+                status : response.status,
+                message: response.data.message
+            }
+            return myResponse
+        })
+
+}
+
