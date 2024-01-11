@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { callingCountries } from "../connectingToApi";
 import { useNavigate } from "react-router-dom";
 import { MappingCountries } from "./MappingCountries";
+import { Pagination } from "./Pagnation";
 export const AllCountries = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [countriesAll, setCountriesAll] = useState([]);
@@ -40,6 +41,7 @@ export const AllCountries = () => {
           </button>
         </div>
             <MappingCountries currentPosts={currentPosts} />
+            <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} totalPosts ={countriesAll.length} postsPerPage={postsPerPage}/>
       </div>
     );
   }
