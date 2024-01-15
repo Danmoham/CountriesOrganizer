@@ -52,22 +52,11 @@ export const callingCountriesFromContinent = (continent) =>{
 export const gettingSpecificCountry = (country) =>{
     return axios.get(`https://restcountries.com/v3.1/name/${country}`).then(({data}) =>{
     data = data[0]
-    const myCountry = {name: data.name.common,population: data.population, capital: data.capital, continent: data.region, flag: data.flags.png}
-    console.log(data)
-    console.log(myCountry.name)
-    console.log(myCountry)
+    const myCountry = {name: data.name.common,population: data.population, capital: data.capital, continent: data.region, flag: data.flags.png, maps :data.maps.googleMaps}
     return myCountry
     }).catch((error) =>{
         console.log(error)
         return error
     })
-    //name of country
-    //population, 
-    //capital
-    //continent
-    //flag
-    // Google maps of location
-    //potentially Languages
 
 }
-gettingSpecificCountry("Ethiopia")
