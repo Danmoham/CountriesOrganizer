@@ -50,7 +50,7 @@ export const callingCountriesFromContinent = (continent) =>{
 
 }
 export const gettingSpecificCountry = (country) =>{
-    return axios.get(`https://restcountries.com/v3.1/name/${country}`).then(({data}) =>{
+    return axios.get(`https://restcountries.com/v3.1/name/${country}?fullText=true`    ).then(({data}) =>{
     data = data[0]
     const myCountry = {name: data.name.common,population: data.population, capital: data.capital, continent: data.region, flag: data.flags.png, maps :data.maps.googleMaps}
     return myCountry

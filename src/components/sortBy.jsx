@@ -43,7 +43,7 @@ export const SortBy = ({ isLoading,setCurrentPage, setCountriesAll, setIsLoading
   }, [currentContinent, isLoading, setCurrentPage, setCountriesAll]);
  
   return (
-    <div>
+    <div className="sorting-continent">
       <p>
         <b>Search by Specific continent</b>
       </p>

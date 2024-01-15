@@ -6,10 +6,14 @@ export const MappingCountries = ({currentPosts}) =>{
     {currentPosts.map((country) => (
               <Link to={`/country/${country.name}`}>
 
-      <ul  className="each-country">
+      <ul  className="each-country list-unstyled">
         <li key={country.name}><b>{country.name}</b></li>
         <li key={country.continent}>Continent: {country.continent}</li>
+        <div id="centre-div">
+        <div>
         <img key={country.flag} className="flag" src={country.flag}></img>
+        </div>
+        </div>
         <li key={country.population}>Population: {makeReadable(country.population)}</li>
         <p>Click here to see more info</p>
 

@@ -1,6 +1,8 @@
 import { Link, useParams } from "react-router-dom";
 import { gettingSpecificCountry } from "../connectingToApi";
 import { useEffect, useState } from "react";
+import { makeReadable } from "../functions"
+
 
 export const SingleCountry = () => {
   const [myCountry, setMyCountry] = useState({});
@@ -21,14 +23,15 @@ export const SingleCountry = () => {
     );
   } else {
   }
+  const population = makeReadable(myCountry.population)
   return (
     <ul className="single-country">
       <li key={myCountry.name}>
         <b>{myCountry.name}</b>
       </li>
       <li key={myCountry.continent}><b>Continent:</b> {myCountry.continent}</li>
-      <li key={`population${myCountry.population}`}>
-        <b>Population: </b>{myCountry.population}
+      <li key={`population${population}`}>
+        <b>Population: </b>{population}
       </li>
       <li key={myCountry.capital}><b>Capital: </b>{myCountry.capital}</li>
       <li key={myCountry.maps}><b>Map location </b>{myCountry.maps}</li>

@@ -4,6 +4,7 @@ import { Route, Routes } from "react-router-dom";
 import { ErrorPage } from "./components/ErrorPage";
 import { SearchPage } from "./components/SearchPage";
 import { SingleCountry } from "./components/SingleCountry";
+
 function App() {
   return (
     <div>
