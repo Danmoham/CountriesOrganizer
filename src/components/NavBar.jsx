@@ -6,14 +6,12 @@ export const NavBar = ({
   isLoading,
   setIsLoading,
   setCountriesAll,
-  setCurrentPage,
+  setCurrentPage, setSearchCountries
 }) => {
   return (
     <nav>
-      <Link to="/search">
-        <button className="search-button">Search Country here</button>
-      </Link>
       <SortBy
+      setSearchCountries={setSearchCountries}
         isLoading={isLoading}
         setCurrentPage={setCurrentPage}
         setCountriesAll={setCountriesAll}

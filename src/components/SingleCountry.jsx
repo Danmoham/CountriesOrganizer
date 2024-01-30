@@ -2,12 +2,23 @@ import { Link, useParams } from "react-router-dom";
 import { gettingSpecificCountry } from "../connectingToApi";
 import { useEffect, useState } from "react";
 import { makeReadable } from "../functions"
+import { GoogleMap, LoadScript } from '@react-google-maps/api';
 
 
 export const SingleCountry = () => {
   const [myCountry, setMyCountry] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   let { my_country } = useParams();
+
+  const center = {
+    lat: -34.397,
+    lng: 150.644,
+  };
+  
+  const containerStyle = {
+    width: '70%',
+    height: '400px',
+  };
 
   useEffect(() => {
     gettingSpecificCountry(my_country).then((data) => {
@@ -22,7 +33,6 @@ export const SingleCountry = () => {
       </div>
     );
   } else {
-  }
   const population = makeReadable(myCountry.population)
   return (
     <ul className="single-country">
@@ -38,9 +48,11 @@ export const SingleCountry = () => {
       <div>
         <img key={myCountry.flag} className="flag" src={myCountry.flag}></img>
       </div>
+
       <Link to="/">
         <button>Go back</button>
       </Link>
     </ul>
   );
 };
+}

@@ -2,7 +2,6 @@ import { AllCountries } from "./components/AllCountries";
 import { Header } from "./components/Header";
 import { Route, Routes } from "react-router-dom";
 import { ErrorPage } from "./components/ErrorPage";
-import { SearchPage } from "./components/SearchPage";
 import { SingleCountry } from "./components/SingleCountry";
 
 function App() {
@@ -12,7 +11,6 @@ function App() {
       <Routes>
         <Route path="/" element={<AllCountries />} />
         <Route path="/Home" element={<AllCountries />} />
-        <Route path="/Search" element={<SearchPage />} />
         <Route path="/*" element={<ErrorPage />} />
         <Route path="/country/:my_country" element={<SingleCountry />} />
       </Routes>

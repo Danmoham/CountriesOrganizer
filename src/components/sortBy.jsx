@@ -4,7 +4,7 @@ import {
 } from "../connectingToApi";
 import { useEffect, useState } from "react";
 
-export const SortBy = ({ isLoading,setCurrentPage, setCountriesAll, setIsLoading }) => {
+export const SortBy = ({setSearchCountries ,isLoading,setCurrentPage, setCountriesAll, setIsLoading }) => {
   const [currentContinent, setCurrentContinent] = useState("All");
   const handlingChange = (event) => {
     event.preventDefault();
@@ -28,14 +28,14 @@ export const SortBy = ({ isLoading,setCurrentPage, setCountriesAll, setIsLoading
   useEffect(() => {
     if (currentContinent === "All" || currentContinent === "Choose Continent") {
       callingCountries().then((data) => {
-        console.log(data);
-        setCountriesAll(data);
+        setCountriesAll(data)
+        setSearchCountries(data)
         setIsLoading(false);
       });
     } else {
       callingCountriesFromContinent(currentContinent).then((data) => {
-        console.log(data);
-        setCountriesAll(data);
+        setCountriesAll(data)
+        setSearchCountries(data)
         setIsLoading(false);
       });
     }
@@ -44,10 +44,10 @@ export const SortBy = ({ isLoading,setCurrentPage, setCountriesAll, setIsLoading
  
   return (
     <div className="sorting-continent">
-      <p>
-        <b>Search by Specific continent</b>
+      <p className="align-text">
+        <b>Filter by Specific continent</b>
       </p>
-      <select value={currentContinent} onChange={handlingChange}>
+      <select className="selecting-continent" value={currentContinent} onChange={handlingChange}>
         <option>Choose Continent</option>
         <option>All</option>
         <option>Europe</option>

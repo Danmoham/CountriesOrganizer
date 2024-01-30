@@ -55,7 +55,6 @@ export const gettingSpecificCountry = (country) =>{
     const myCountry = {name: data.name.common,population: data.population, capital: data.capital, continent: data.region, flag: data.flags.png, maps :data.maps.googleMaps}
     return myCountry
     }).catch((error) =>{
-        console.log(error)
         return error
     })
 
