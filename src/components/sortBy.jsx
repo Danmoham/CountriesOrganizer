@@ -44,9 +44,9 @@ export const SortBy = ({setSearchCountries ,isLoading,setCurrentPage, setCountri
  
   return (
     <div className="sorting-continent">
-      <p className="align-text">
+      <label className="align-text">
         <b>Filter by Specific continent</b>
-      </p>
+      </label>
       <select className="selecting-continent" value={currentContinent} onChange={handlingChange}>
         <option>Choose Continent</option>
         <option>All</option>

@@ -1,9 +1,8 @@
 import { Link, useParams } from "react-router-dom";
 import { gettingSpecificCountry } from "../connectingToApi";
 import { useEffect, useState } from "react";
-import { makeReadable } from "../functions"
-import { GoogleMap, LoadScript } from '@react-google-maps/api';
-
+import { makeReadable } from "../functions";
+import { GoogleMap, LoadScript } from "@react-google-maps/api";
 
 export const SingleCountry = () => {
   const [myCountry, setMyCountry] = useState({});
@@ -14,10 +13,10 @@ export const SingleCountry = () => {
     lat: -34.397,
     lng: 150.644,
   };
-  
+
   const containerStyle = {
-    width: '70%',
-    height: '400px',
+    width: "70%",
+    height: "400px",
   };
 
   useEffect(() => {
@@ -33,26 +32,41 @@ export const SingleCountry = () => {
       </div>
     );
   } else {
-  const population = makeReadable(myCountry.population)
-  return (
-    <ul className="single-country">
-      <li key={myCountry.name}>
-        <b>{myCountry.name}</b>
-      </li>
-      <li key={myCountry.continent}><b>Continent:</b> {myCountry.continent}</li>
-      <li key={`population${population}`}>
-        <b>Population: </b>{population}
-      </li>
-      <li key={myCountry.capital}><b>Capital: </b>{myCountry.capital}</li>
-      <li key={myCountry.maps}><b>Map location </b>{myCountry.maps}</li>
-      <div>
-        <img key={myCountry.flag} className="flag" src={myCountry.flag}></img>
-      </div>
-
-      <Link to="/">
-        <button>Go back</button>
-      </Link>
-    </ul>
-  );
+    const population = makeReadable(myCountry.population);
+    return (
+      <>
+      <ul key={myCountry} className="single-country">
+        <h2 key={myCountry.name}>
+          <b>{myCountry.name}</b>
+        </h2>
+        <div>
+          <img key={myCountry.flag} className="single-flag" src={myCountry.flag}></img>
+        </div>
+        <li key={myCountry.continent}>
+          <b>Continent:</b> {myCountry.continent}
+        </li>
+        <li className="languages" key={myCountry.languages}>
+          <b>Language(s) spoke:</b> {myCountry.languages.join(", ")}
+        </li>
+        <li key={`population${population}`}>
+          <li key={myCountry}></li>
+          <b>Population: </b>
+          {population}
+        </li>
+        <li key={myCountry.capital}>
+          <b>Capital: </b>
+          {myCountry.capital}
+        </li>
+        <li key={myCountry.maps}>
+         <a href={myCountry.maps} target="_blank">  <b>Click here to view location on google maps</b></a>
+        </li>
+       
+       
+      </ul>
+       <Link to="/">
+       <button>Go back</button>
+     </Link>
+     </>
+    );
+  }
 };
-}

@@ -106,3 +106,49 @@ h1{
   font-weight: 900;
   margin: 50px;
 }
+.single-flag{
+  height: 200px;
+  width: 300px;
+  margin: 20px;
+}
+.single-country li{
+  margin: 10px;
+}
+.single-country a:hover {
+  text-decoration: underline;
+}
+.single-country a{
+  color: blue;
+}
+.NavBar{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+select{
+  margin-top: 20px;
+  margin-right: 50px;
+  background-color: #f1f1f1;
+  border: none;
+  color: black;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 15px;
+}
+option{
+  margin-right: 20px;
+}
+input{
+  background-color: #f1f1f1;
+  border: none;
+  color: black;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 15px;
+  margin-left: 30%;
+}

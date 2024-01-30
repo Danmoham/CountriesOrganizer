@@ -31,10 +31,10 @@ export const AllCountries = () => {
   } else {
     function searchingItems(event){
       event.preventDefault()
-      const mySearchTerm = event.target.value
+      const mySearchTerm = event.target.value.toLowerCase()
       if (mySearchTerm.length > 2){
         const mySearchedCountries = countriesAll.filter((country) =>{
-          return country.name.includes(mySearchTerm)
+          return country.name.toLowerCase().includes(mySearchTerm)
         })
         setSearchCountries(mySearchedCountries)
         setCurrentPage(1)
@@ -45,6 +45,11 @@ export const AllCountries = () => {
     }
     return (
       <div>
+      <div className="NavBar">
+        <div>
+        <input className="search-input" onChange={searchingItems} placeholder="Search Here....">
+        </input>
+        </div>
         <NavBar
           isLoading={isLoading}
           setCurrentPage={setCurrentPage}
@@ -52,10 +57,6 @@ export const AllCountries = () => {
           setSearchCountries={setSearchCountries}
           setIsLoading={setIsLoading}
         />
-        <div>
-        <label><b>Type Country here: </b></label>
-        <input onChange={searchingItems} placeholder="Country Name">
-        </input>
         </div>
         <MappingCountries currentPosts={currentPosts} />
         <Pagination

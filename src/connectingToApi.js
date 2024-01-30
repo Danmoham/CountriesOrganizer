@@ -51,11 +51,18 @@ export const callingCountriesFromContinent = (continent) =>{
 }
 export const gettingSpecificCountry = (country) =>{
     return axios.get(`https://restcountries.com/v3.1/name/${country}?fullText=true`    ).then(({data}) =>{
-    data = data[0]
-    const myCountry = {name: data.name.common,population: data.population, capital: data.capital, continent: data.region, flag: data.flags.png, maps :data.maps.googleMaps}
+        data = data[0]
+    const myLanguages = []
+    for (let key in data.languages){
+        myLanguages.push(data.languages[key])
+    }
+    const myCountry = {languages: myLanguages, name: data.name.common,population: data.population, capital: data.capital, continent: data.region, flag: data.flags.png, maps :data.maps.googleMaps}
+    console.log(myCountry)
     return myCountry
     }).catch((error) =>{
+        console.log(error)
         return error
     })
 
 }
+gettingSpecificCountry("andorra")
