@@ -24,9 +24,8 @@ export const AllCountries = () => {
 
   if (isLoading) {
     return (
-      <div>
-        <h2>Loading....</h2>
-      </div>
+      <div><h2 className="align-text">Loading...</h2></div>
+
     );
   } else {
     function searchingItems(event){
@@ -47,8 +46,10 @@ export const AllCountries = () => {
       <div>
       <div className="NavBar">
         <div>
-        <input className="search-input" onChange={searchingItems} placeholder="Search Here....">
+        <div class="InputContainer">
+        <input className="search-input" onChange={searchingItems} placeholder="Search Country Here....">
         </input>
+        </div>
         </div>
         <NavBar
           isLoading={isLoading}

@@ -8,13 +8,13 @@ export const MappingCountries = ({currentPosts}) =>{
 
       <ul  className="each-country list-unstyled">
         <li key={country.name}><b>{country.name}</b></li>
-        <li key={country.continent}>Continent: {country.continent}</li>
+        <li key={country.continent}><b>Continent:</b> {country.continent}</li>
         <div id="centre-div">
         <div>
         <img key={country.flag} className="flag" src={country.flag}></img>
         </div>
         </div>
-        <li key={country.population}>Population: {makeReadable(country.population)}</li>
+        <li key={country.population}><b>Population: </b>{makeReadable(country.population)}</li>
         <p>Click here to see more info</p>
 
       </ul>

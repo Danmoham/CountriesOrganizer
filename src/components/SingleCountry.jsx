@@ -8,17 +8,6 @@ export const SingleCountry = () => {
   const [myCountry, setMyCountry] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   let { my_country } = useParams();
-
-  const center = {
-    lat: -34.397,
-    lng: 150.644,
-  };
-
-  const containerStyle = {
-    width: "70%",
-    height: "400px",
-  };
-
   useEffect(() => {
     gettingSpecificCountry(my_country).then((data) => {
       setMyCountry(data);
@@ -27,9 +16,8 @@ export const SingleCountry = () => {
   }, []);
   if (isLoading) {
     return (
-      <div>
-        <h2>Loading...</h2>
-      </div>
+      <div><h2 className="align-text">Loading...</h2>
+</div>
     );
   } else {
     const population = makeReadable(myCountry.population);
@@ -42,17 +30,22 @@ export const SingleCountry = () => {
         <div>
           <img key={myCountry.flag} className="single-flag" src={myCountry.flag}></img>
         </div>
+
         <li key={myCountry.continent}>
           <b>Continent:</b> {myCountry.continent}
+        </li>
+        <li key={`population${population}`}>
+          <li key={myCountry}></li>
+          <b>{population} </b>
+          people live here
         </li>
         <li className="languages" key={myCountry.languages}>
           <b>Language(s) spoke:</b> {myCountry.languages.join(", ")}
         </li>
-        <li key={`population${population}`}>
-          <li key={myCountry}></li>
-          <b>Population: </b>
-          {population}
+        <li className="languages" key={myCountry.currencies}>
+          <b>Currency(s) used:</b> {myCountry.currencies.join(", ")}
         </li>
+      
         <li key={myCountry.capital}>
           <b>Capital: </b>
           {myCountry.capital}
@@ -64,7 +57,7 @@ export const SingleCountry = () => {
        
       </ul>
        <Link to="/">
-       <button>Go back</button>
+       <button className="back-button">Go back</button>
      </Link>
      </>
     );
