@@ -1,13 +1,11 @@
 * {
-  Font-family: Dejavu Sans, Arial, Verdana, sans-serif,
-
+  font-family: Dejavu Sans, Arial, Verdana, sans-serif;
 }
-body{
-    background-color: #f1f1f1;
-
+body {
+  background-color: #f1f1f1;
 }
 #map * {
-  overflow:visible;
+  overflow: visible;
 }
 .order-countries {
   display: flex;
@@ -28,16 +26,31 @@ body{
   padding: 16px;
   text-align: center;
   background-color: #f1f1f1;
- background: #e0e0e0;
- box-shadow: 10px 10px 10px #bebebe,
-               -20px -20px 20px #ffffff;
+  background: #e0e0e0;
+  box-shadow: 10px 10px 10px #bebebe, -20px -20px 20px #ffffff;
 }
-.each-country:hover{
-  transform: scale(1.025); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+.each-country:hover {
+  transform: scale(
+    1.025
+  ); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
   transition: 300ms;
   cursor: pointer;
-
 }
+@media only screen and (max-width: 400px) {
+  .each-country {
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 290px;
+    padding: 16px;
+    text-align: center;
+    background-color: #f1f1f1;
+    background: #e0e0e0;
+    box-shadow: 10px 10px 10px #bebebe, -20px -20px 20px #ffffff;
+  }
+}
+
 #search-div {
   text-align: center;
 }
@@ -45,12 +58,11 @@ body{
 ul {
   list-style-type: none;
 }
-.pagination{
+.pagination {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-
 }
 .loader {
   animation: rotate 1s infinite;
@@ -79,9 +91,15 @@ ul {
 }
 
 @keyframes rotate {
-  0% { transform: rotate(0deg) scale(0.8) }
-  50% { transform: rotate(360deg) scale(1.2) }
-  100% { transform: rotate(720deg) scale(0.8) }
+  0% {
+    transform: rotate(0deg) scale(0.8);
+  }
+  50% {
+    transform: rotate(360deg) scale(1.2);
+  }
+  100% {
+    transform: rotate(720deg) scale(0.8);
+  }
 }
 
 @keyframes ball1 {
@@ -114,31 +132,31 @@ ul {
   }
 }
 
-.pagination button{
+.pagination button {
   margin: 3px;
   margin-bottom: 80px;
   margin-top: 20px;
 }
-.align-text{
+.align-text {
   text-align: center;
 }
 
-img{
+img {
   border-radius: 3px;
   margin-right: 30px;
   height: 120px;
   width: 200px;
 }
-a{
+a {
   margin: 20px;
-text-decoration: none;
-color: black;
+  text-decoration: none;
+  color: black;
 }
 
-li{
+li {
   list-style-type: none;
 }
-.single-country{
+.single-country {
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -150,58 +168,60 @@ li{
   padding: 0;
   display: flex;
 }
-.pagination button{
+.pagination button {
   color: navy;
   background-color: white;
 }
-.pagination button:hover{
-  transform: scale(1.25); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+.pagination button:hover {
+  transform: scale(
+    1.25
+  ); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
   cursor: pointer;
 }
-#centre-div{
+#centre-div {
   margin-left: 35px;
   display: flex;
   justify-content: center;
 }
-.sorting-continent{
+.sorting-continent {
   display: flex;
   flex-direction: row;
   justify-content: center;
   text-align: center;
   margin-right: 10px;
 }
-.selecting-continent{
+.selecting-continent {
   margin-bottom: 20px;
   margin-left: 0px;
 }
-label{
+label {
   margin: 20px;
 }
-h1{
+h1 {
   font-weight: 900;
   margin: 50px;
 }
-.single-flag{
+.single-flag {
   height: 200px;
   width: 300px;
   margin: 20px;
 }
-.single-country li{
+.single-country li {
   margin: 10px;
 }
 .single-country a:hover {
   text-decoration: underline;
 }
-.single-country a{
+.single-country a {
   color: blue;
 }
-.NavBar{
+.NavBar {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
 }
-select{
+select {
   margin-top: 10px;
   width: 200px;
   height: 40px;
@@ -215,7 +235,7 @@ select{
   background-color: white;
 }
 
-.align-text{
+.align-text {
   text-align: center;
 }
 .InputContainer {
@@ -225,7 +245,11 @@ select{
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(to bottom,rgb(227, 213, 255),rgb(255, 231, 231));
+  background: linear-gradient(
+    to bottom,
+    rgb(227, 213, 255),
+    rgb(255, 231, 231)
+  );
   border-radius: 30px;
   overflow: hidden;
   cursor: pointer;
@@ -258,13 +282,13 @@ select{
   position: relative;
   font-weight: 800px;
   font-size: 14px;
-  -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
-  box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
   transition: all 250ms;
   overflow: hidden;
- }
- 
- .back-button::before {
+}
+
+.back-button::before {
   content: "";
   position: absolute;
   top: 0;
@@ -274,22 +298,22 @@ select{
   border-radius: 15px;
   background-color: #212121;
   z-index: -1;
-  -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
-  box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
-  transition: all 250ms
- }
- 
- .back-button:hover {
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  transition: all 250ms;
+}
+
+.back-button:hover {
   color: #e8e8e8;
- }
- 
- .back-button:hover::before {
+}
+
+.back-button:hover::before {
   width: 100%;
- }
- .order-countries li{
+}
+.order-countries li {
   margin-bottom: 5px;
- }
- option{
+}
+option {
   width: 200px;
   height: 40px;
   border: none;
@@ -300,4 +324,4 @@ select{
   color: rgb(19, 19, 19);
   font-size: 13.4px;
   background-color: white;
- }
+}
