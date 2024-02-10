@@ -1,5 +1,4 @@
 import 'bootstrap/dist/css/bootstrap.css';
-
 export const Pagination = ({ setCurrentPage, currentPage, totalPosts, postsPerPage }) => {
     let pages = [];
     for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {

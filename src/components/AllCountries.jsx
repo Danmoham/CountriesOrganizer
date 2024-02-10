@@ -7,57 +7,58 @@ import { NavBar } from "./NavBar";
 export const AllCountries = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [countriesAll, setCountriesAll] = useState([]);
-  const [searchCountries,setSearchCountries] = useState([])
+  const [searchCountries, setSearchCountries] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(15);
+  const postsPerPage = 15;
   const lastPostIndex = currentPage * postsPerPage;
   const firstPostIndex = lastPostIndex - postsPerPage;
   const currentPosts = searchCountries.slice(firstPostIndex, lastPostIndex);
   useEffect(() => {
     callingCountries().then((data) => {
-      setSearchCountries(data)
+      setSearchCountries(data);
       setCountriesAll(data);
       setIsLoading(false);
     });
   }, []);
 
-
   if (isLoading) {
     return (
-      <div><h2 className="align-text">Loading...</h2></div>
-
+      <div>
+        <h2 className="align-text">Loading...</h2>
+      </div>
     );
   } else {
-    function searchingItems(event){
-      event.preventDefault()
-      const mySearchTerm = event.target.value.toLowerCase()
-      if (mySearchTerm.length > 2){
-        const mySearchedCountries = countriesAll.filter((country) =>{
-          return country.name.toLowerCase().includes(mySearchTerm)
-        })
-        setSearchCountries(mySearchedCountries)
-        setCurrentPage(1)
-      }else{
-        setSearchCountries(countriesAll)
-
+    function searchingItems(event) {
+      event.preventDefault();
+      const mySearchTerm = event.target.value.toLowerCase();
+      if (mySearchTerm.length > 2) {
+        const mySearchedCountries = countriesAll.filter((country) => {
+          return country.name.toLowerCase().includes(mySearchTerm);
+        });
+        setSearchCountries(mySearchedCountries);
+        setCurrentPage(1);
+      } else {
+        setSearchCountries(countriesAll);
       }
     }
     return (
       <div>
-      <div className="NavBar">
-        <div>
-        <div class="InputContainer">
-        <input className="search-input" onChange={searchingItems} placeholder="Search Country Here....">
-        </input>
-        </div>
-        </div>
-        <NavBar
-          isLoading={isLoading}
-          setCurrentPage={setCurrentPage}
-          setCountriesAll={setCountriesAll}
-          setSearchCountries={setSearchCountries}
-          setIsLoading={setIsLoading}
-        />
+        <div className="NavBar">
+          <div>
+            <div class="InputContainer">
+              <input
+                className="search-input"
+                onChange={searchingItems}
+                placeholder="Search Country Here...."
+              ></input>
+            </div>
+          </div>
+          <NavBar
+            setCurrentPage={setCurrentPage}
+            setCountriesAll={setCountriesAll}
+            setSearchCountries={setSearchCountries}
+            setIsLoading={setIsLoading}
+          />
         </div>
         <MappingCountries currentPosts={currentPosts} />
         <Pagination
