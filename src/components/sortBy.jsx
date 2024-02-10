@@ -4,7 +4,12 @@ import {
 } from "../connectingToApi";
 import { useEffect, useState } from "react";
 
-export const SortBy = ({setSearchCountries ,isLoading,setCurrentPage, setCountriesAll, setIsLoading }) => {
+export const SortBy = ({
+  setSearchCountries,
+  setCurrentPage,
+  setCountriesAll,
+  setIsLoading,
+}) => {
   const [currentContinent, setCurrentContinent] = useState("All");
   const handlingChange = (event) => {
     event.preventDefault();
@@ -14,40 +19,42 @@ export const SortBy = ({setSearchCountries ,isLoading,setCurrentPage, setCountri
     ) {
       setIsLoading(true);
       setCurrentPage(1);
-      setCurrentContinent("All")
-      setIsLoading(false)
+      setCurrentContinent("All");
+      setIsLoading(false);
     } else {
       setIsLoading(true);
       setCurrentPage(1);
-      setCurrentContinent(event.target.value)
-      setIsLoading(false)
-        // The callback function will be executed after the state is updated
- 
+      setCurrentContinent(event.target.value);
+      setIsLoading(false);
+      // The callback function will be executed after the state is updated
+    }
   };
-}
   useEffect(() => {
     if (currentContinent === "All" || currentContinent === "Choose Continent") {
       callingCountries().then((data) => {
-        setCountriesAll(data)
-        setSearchCountries(data)
+        setCountriesAll(data);
+        setSearchCountries(data);
         setIsLoading(false);
       });
     } else {
       callingCountriesFromContinent(currentContinent).then((data) => {
-        setCountriesAll(data)
-        setSearchCountries(data)
+        setCountriesAll(data);
+        setSearchCountries(data);
         setIsLoading(false);
       });
     }
+  }, [currentContinent]);
 
-  }, [currentContinent, isLoading, setCurrentPage, setCountriesAll]);
- 
   return (
     <div className="sorting-continent">
       <label className="align-text">
         <b>Filter by Specific continent</b>
       </label>
-      <select className="selecting-continent" value={currentContinent} onChange={handlingChange}>
+      <select
+        className="selecting-continent"
+        value={currentContinent}
+        onChange={handlingChange}
+      >
         <option>Choose Continent</option>
         <option>All</option>
         <option>Europe</option>
