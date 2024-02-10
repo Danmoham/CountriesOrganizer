@@ -23,8 +23,9 @@ export const AllCountries = () => {
 
   if (isLoading) {
     return (
-      <div>
-        <h2 className="align-text">Loading...</h2>
+        <div className="InputContainer">
+        <span className="loader align-text"></span>
+
       </div>
     );
   } else {
