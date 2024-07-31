@@ -5,6 +5,19 @@ import { MappingCountries } from "./MappingCountries";
 import { Pagination } from "./Pagnation";
 import { NavBar } from "./NavBar";
 export const AllCountries = () => {
+  function searchingItems(event) {
+    event.preventDefault();
+    const mySearchTerm = event.target.value.toLowerCase();
+    if (mySearchTerm.length > 2) {
+      const mySearchedCountries = countriesAll.filter((country) => {
+        return country.name.toLowerCase().includes(mySearchTerm);
+      });
+      setSearchCountries(mySearchedCountries);
+      setCurrentPage(1);
+    } else {
+      setSearchCountries(countriesAll);
+    }
+  }
   const [isLoading, setIsLoading] = useState(true);
   const [countriesAll, setCountriesAll] = useState([]);
   const [searchCountries, setSearchCountries] = useState([]);
@@ -18,35 +31,21 @@ export const AllCountries = () => {
       setSearchCountries(data);
       setCountriesAll(data);
       setIsLoading(false);
-    })
+    });
   }, []);
 
   if (isLoading) {
     return (
-        <div className="InputContainer">
+      <div className="InputContainer">
         <span className="loader align-text"></span>
-
       </div>
     );
   } else {
-    function searchingItems(event) {
-      event.preventDefault();
-      const mySearchTerm = event.target.value.toLowerCase();
-      if (mySearchTerm.length > 2) {
-        const mySearchedCountries = countriesAll.filter((country) => {
-          return country.name.toLowerCase().includes(mySearchTerm);
-        });
-        setSearchCountries(mySearchedCountries);
-        setCurrentPage(1);
-      } else {
-        setSearchCountries(countriesAll);
-      }
-    }
     return (
       <div>
         <div className="NavBar">
           <div>
-            <div class="InputContainer">
+            <div className="InputContainer">
               <input
                 className="search-input"
                 onChange={searchingItems}
