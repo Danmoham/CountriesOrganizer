@@ -18,7 +18,7 @@ export const AllCountries = () => {
       setSearchCountries(data);
       setCountriesAll(data);
       setIsLoading(false);
-    });
+    })
   }, []);
 
   if (isLoading) {
